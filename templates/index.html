@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel数据匹配工具</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #1890ff; text-align: center; }
+        .container { background: #f0f5ff; border-radius: 8px; padding: 25px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        input[type="file"] { width: 100%; padding: 10px; border: 1px solid #d9d9d9; border-radius: 4px; }
+        button { background: #1890ff; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background: #40a9ff; }
+        .info { background: #e6f7ff; padding: 15px; border-radius: 4px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Excel数据匹配工具</h1>
+        <p>上传两个Excel文件，系统将根据"本企业代码"自动匹配数据</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file1">当前数据表格（含"本企业代码"）</label>
+                <input type="file" name="file1" accept=".xlsx,.xls" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="file2">信息数据表格（含"成立时间"、"注册资本"等字段）</label>
+                <input type="file" name="file2" accept=".xlsx,.xls" required>
+            </div>
+            
+            <button type="submit">开始匹配</button>
+        </form>
+        
+        <div class="info">
+            <h3>使用说明</h3>
+            <ol>
+                <li>当前数据表格：包含"本企业代码"列（作为匹配基础）</li>
+                <li>信息数据表格：包含"成立时间"、"注册资本"等完整字段</li>
+                <li>匹配后，缺失字段将显示为"未提供"</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
